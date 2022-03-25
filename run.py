@@ -10,19 +10,18 @@ class Game:
         self.guess = guess
         self.guesscount = guesscount
 
-
 def launch_game():
     """
     Launches new instance of Game class
     """
     #split = [char for char in word]
+    print('launching game!')
     f = open("3letterwords.txt", "r")
-    wordpool = f.readlines()
-    chosen_word = random.choice(wordpool)
-    print(chosen_word)
-   # game = Game(3, chosenword, 0)
+    chosen_word = random.choice(f.readlines()).strip()
+    index = [char for char in chosen_word]
+    new_game = Game(3, index, '', 0)
+    return new_game
 
-launch_game()
 
 #def check_valid_input():
    # try:
@@ -33,11 +32,10 @@ launch_game()
 # checks if letter is in correct position
 
 
-
-
-
-#def main():
+def main():
     #runs the game, generating random word from list as goal word by calling an instance of the class Word
     #checks that user input is valid - is a word on the word-pool list
     #indexes across user guess, splitting it into string
+     = launch_game()
+
 
