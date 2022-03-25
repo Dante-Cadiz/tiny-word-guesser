@@ -9,6 +9,9 @@ class Game:
         self.word = word
         self.guess = guess
         self.guesscount = guesscount
+    
+    def description(self):
+        return f'Your word is {self.size} letters long and you have had {self.guesscount} guesses.'
 
 def launch_game():
     """
