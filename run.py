@@ -1,5 +1,5 @@
 import random
-word_list = ['and', 'fix', 'own', 'are', 'fly', 'odd', 'ape', 'fry', 'our', 'ace', 'for', 'pet', 'act', 'got', 'pat', 'ask', 'get', 'peg', 'arm', 'god', 'paw', 'age', 'gel', 'pup', 'ago', 'gas', 'pit', 'air', 'hat', 'put', 'ate', 'hit', 'pot', 'all', 'has', 'pop', 'but', 'had', 'pin', 'bye', 'how', 'ham', 'rat', 'bad', 'her', 'rag', 'big', 'his', 'rub', 'bed', 'hen', 'row', 'bat', 'ink', 'rug', 'boy', 'ice', 'run', 'bus', 'ill', 'rap', 'bag', 'jab', 'ram', 'box', 'jug', 'sow', 'bit', 'jet', 'see', 'bee', 'jam', 'saw', 'buy', 'jar', 'set', 'bun', 'job', 'sit', 'cub', 'jog', 'sir', 'cat', 'kit', 'sat', 'car', 'key', 'sob', 'cut', 'lot', 'tap', 'cow', 'lit', 'tip', 'cry', 'let', 'top', 'cab', 'lay', 'tug', 'can', 'mat', 'tow', 'dad', 'man', 'toe', 'dab', 'mad', 'tan', 'dam', 'mug', 'ten', 'did', 'mix', 'two', 'dug', 'map', 'use', 'den', 'mum', 'van', 'dot', 'mud', 'vet', 'dip', 'mom', 'was', 'day', 'may', 'wet', 'ear', 'met', 'win', 'eye', 'net', 'won', 'eat', 'new', 'wig', 'end', 'nap', 'war', 'elf', 'now', 'why', 'egg', 'nod', 'who', 'far', 'net', 'way', 'fat', 'not', 'wow', 'few', 'nut', 'you', 'fan', 'oar', 'yes', 'fun', 'one', 'yak', 'fit', 'out', 'yet', 'fin', 'owl', 'zip', 'fox', 'old', 'zap']
+word_list = ['ace', 'act', 'age', 'ago', 'air', 'ale', 'all', 'and', 'ape', 'app', 'are', 'ark', 'arm', 'ash', 'ask', 'ate', 'bad', 'bag', 'bat', 'bay', 'bed', 'bee', 'bet', 'big', 'bin', 'bit', 'bob', 'bog', 'bop', 'box', 'boy', 'bra', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cap', 'can', 'car', 'cat', 'cop', 'cow', 'cry', 'cub', 'cut', 'dab', 'dad', 'dam', 'day', 'den', 'did', 'dip', 'doe', 'dog', 'dot', 'due', 'dug', 'ear', 'eat', 'egg', 'elf', 'elk', 'end', 'eye', 'fan', 'far', 'fat', 'fee', 'few', 'fig', 'fin', 'fit', 'fix', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'gap', 'gas', 'gay', 'gel', 'get', 'god', 'got', 'had', 'ham', 'has', 'hat', 'hen', 'her', 'hex', 'him', 'hip', 'his', 'hit', 'hoe', 'how', 'ice', 'ill', 'ink', 'jab', 'jam', 'jar', 'jet', 'job', 'jog', 'jug', 'key', 'kit', 'lay', 'leg', 'let', 'lie', 'lip', 'lit', 'lob', 'lot', 'mad', 'man', 'map', 'mat', 'may', 'met', 'mew', 'mix', 'mom', 'mud', 'mug', 'mum', 'nap', 'net', 'net', 'new', 'nod', 'not', 'now', 'nut', 'oaf', 'oar', 'odd', 'oil', 'old', 'one', 'our', 'out', 'owl', 'own', 'pat', 'paw', 'peg', 'pet', 'pin', 'pit', 'pop', 'pot', 'pup', 'put', 'rag', 'ram', 'rap', 'rat', 'row', 'rub', 'rug', 'run', 'sat', 'saw', 'see', 'set', 'sir', 'sit', 'sob', 'sow', 'tan', 'tap', 'tea', 'ten', 'the', 'tip', 'toe', 'top', 'tow', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'war', 'was', 'way', 'wet', 'who', 'why', 'wig', 'win', 'won', 'wow', 'yak', 'yes', 'yet', 'you', 'zap', 'zip']
 
 
 class Game:
@@ -31,7 +31,7 @@ def launch_game():
 def get_user_input():
     while True:
         print('Guess a 3 letter word')
-        user_guess = input('Make your guess here')
+        user_guess = input('Make your guess here: ')
         user_guess_letters = user_guess.split()
         
         if check_valid_input(user_guess):
@@ -52,11 +52,7 @@ def check_valid_input(guessed_word):
 
     return True
 
-
-launch_game()
-get_user_input()
-
-#def compare_input():
+def compare_input(word_list, ):
     # [i for i, j in zip(a, b) if i == j] from stack overflow https://stackoverflow.com/questions/1388818/how-can-i-compare-two-lists-in-python-and-return-matches
 # checks if letter is in correct position
 
@@ -66,5 +62,9 @@ get_user_input()
     #checks that user input is valid - is a word on the word-pool list
     #indexes across user guess, splitting it into string
     
+
+
+launch_game()
+get_user_input()
 
 
