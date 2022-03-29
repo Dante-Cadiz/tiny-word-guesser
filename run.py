@@ -1,6 +1,6 @@
 import random
 # import rich use colours in CLI 
-word_list = ['ace', 'act', 'age', 'ago', 'air', 'ale', 'all', 'amp', 'and', 'ant', 'ape', 'app', 'are', 'ark', 'arm', 'ash', 'ask', 'ate', 'awe', 'axe', 'bad', 'bag', 'bap', 'bat', 'bay', 'bed', 'bee', 'beg', 'bet', 'big', 'bin', 'bit', 'bob', 'bog', 'bop', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cap', 'can', 'car', 'cat', 'cob', 'cop', 'cow', 'cry', 'cub', 'cut', 'dab', 'dad', 'dam', 'day', 'den', 'did', 'dip', 'doe', 'dog', 'dot', 'dry', 'due', 'dug', 'ear', 'eat', 'egg', 'elf', 'elk', 'end', 'eye', 'fan', 'far', 'fat', 'fee', 'few', 'fig', 'fin', 'fit', 'fix', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'gap', 'gas', 'gay', 'gel', 'get', 'god', 'got', 'had', 'hag', 'ham', 'has', 'hat', 'hay', 'hen', 'her', 'hex', 'hid', 'him', 'hip', 'his', 'hit', 'hob', 'hoe', 'hop', 'how', 'hub', 'hug', 'hut', 'ice', 'ill', 'ink', 'jab', 'jam', 'jar', 'jaw', 'jet', 'job', 'jog', 'jug', 'jut', 'key', 'kid', 'kit', 'lab', 'lag', 'lap', 'lay', 'leg', 'let', 'lie', 'lip', 'lit', 'lob', 'lot', 'mad', 'man', 'map', 'mat', 'may', 'men', 'met', 'mew', 'mix', 'mob', 'mom', 'mop', 'mud', 'mug', 'mum', 'nag', 'nap', 'net', 'new', 'nod', 'not', 'now', 'nut', 'oaf', 'oar', 'odd', 'oil', 'old', 'one', 'our', 'out', 'owl', 'own', 'pat', 'paw', 'pea', 'peg', 'pet', 'pig', 'pin', 'pit', 'pop', 'pot', 'pup', 'put', 'rag', 'ram', 'rap', 'rat', 'row', 'rub', 'rug', 'run', 'sat', 'saw', 'see', 'set', 'sir', 'sit', 'sob', 'sow', 'tan', 'tap', 'tea', 'ten', 'the', 'tip', 'toe', 'top', 'tow', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'war', 'was', 'way', 'wet', 'who', 'why', 'wig', 'win', 'won', 'wow', 'yak', 'yes', 'yet', 'you', 'zap', 'zip']
+word_list = ['ace', 'act', 'age', 'ago', 'air', 'ale', 'all', 'amp', 'and', 'ant', 'any', 'ape', 'app', 'are', 'ark', 'arm', 'ash', 'ask', 'ate', 'awe', 'axe', 'bad', 'bag', 'bap', 'bat', 'bay', 'bed', 'bee', 'beg', 'bet', 'big', 'bin', 'bit', 'bob', 'bog', 'bop', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cap', 'can', 'car', 'cat', 'cob', 'cop', 'cow', 'cry', 'cub', 'cut', 'dab', 'dad', 'dam', 'day', 'den', 'did', 'dip', 'doe', 'dog', 'dot', 'dry', 'due', 'dug', 'ear', 'eat', 'egg', 'elf', 'elk', 'end', 'eye', 'fan', 'far', 'fat', 'fee', 'few', 'fig', 'fin', 'fit', 'fix', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'gap', 'gas', 'gay', 'gel', 'get', 'god', 'got', 'had', 'hag', 'ham', 'has', 'hat', 'hay', 'hen', 'her', 'hex', 'hid', 'him', 'hip', 'his', 'hit', 'hob', 'hoe', 'hop', 'how', 'hub', 'hug', 'hut', 'ice', 'ill', 'ink', 'jab', 'jam', 'jar', 'jaw', 'jet', 'job', 'jog', 'jug', 'jut', 'key', 'kid', 'kin', 'kit', 'lab', 'lag', 'lap', 'law', 'lay', 'leg', 'let', 'lid', 'lie', 'lip', 'lit', 'lob', 'lot', 'low', 'mad', 'man', 'map', 'mat', 'may', 'men', 'met', 'mew', 'mix', 'mob', 'mom', 'mop', 'mow', 'mud', 'mug', 'mum', 'nag', 'nap', 'net', 'new', 'nod', 'not', 'now', 'nut', 'oaf', 'oar', 'odd', 'oil', 'old', 'one', 'our', 'out', 'owe', 'owl', 'own', 'pad', 'pal', 'pan', 'par', 'pat', 'paw', 'pay', 'pea', 'peg', 'pen', 'pet', 'pie', 'pig', 'pin', 'pit', 'pop', 'pot', 'pox', 'pup', 'put', 'rag', 'ram', 'rap', 'rat', 'ray', 'rod', 'row', 'rub', 'rug', 'run', 'sap', 'sat', 'saw', 'say', 'see', 'set', 'sew', 'sir', 'sin', 'sit', 'sob', 'son', 'sow', 'tag', 'tan', 'tap', 'tea', 'ten', 'the', 'tie', 'tip', 'toe', 'ton', 'top', 'tow', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'vex', 'wad', 'war', 'was', 'wax', 'way', 'wet', 'who', 'why', 'wig', 'win', 'wit', 'won', 'wow', 'yak', 'yes', 'yet', 'you', 'zap', 'zip', 'zoo']
 
 
 class Game:
@@ -12,8 +12,18 @@ class Game:
         self.word = word
         self.guess = guess
         self.guesscount = guesscount
-
-        # put compare input method as a method within the class
+    
+    def compare_input(word, guess):
+        """
+        Compares user input with the random word generated from the list. 
+        Finds position-dependent letter matches and feeds back to user
+        """
+        correct_position_guesses = [i for i, j in zip(word, guess) if i == j]
+        print(f'Letters {correct_position_guesses} in the correct position')
+        incorrect_position_guesses = (set(word) & set(guess)) - set(correct_position_guesses)
+        print(f'Letters {incorrect_position_guesses} somewhere in word')
+        incorrect_guesses = set(guess) - set(word)
+        print(f'{incorrect_guesses} not in the word')
     
     def description(self):
         """
@@ -30,6 +40,7 @@ def launch_game():
     new_game = Game(3, chosen_word, '', 0)
     print(new_game.description())
     print(chosen_word)
+    return chosen_word
 
 def get_user_input():
     """
@@ -62,20 +73,12 @@ def check_valid_input(user_guess):
 
     return True
 
-def compare_input(chosen_word, user_guess):
-    """
-    Compares user input with the random word generated from the list. 
-    Finds position-dependent letter matches and feeds back to user
-    """
-    # put as a method within the class
-    correct_position_guesses = [i for i, j in zip(chosen_word, user_guess) if i == j] 
-    print(f'You guessed the letters {correct_position_guesses} correctly')
 
 
 def main():
-    new_game = launch_game()
+    chosen_word = launch_game()
     user_guess = get_user_input()
-    result = compare_input()
-
+    comparison = Game.compare_input(chosen_word, user_guess)
+    
 
 main()
