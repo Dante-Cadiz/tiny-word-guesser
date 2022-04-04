@@ -87,11 +87,5 @@ def main():
         new_game.compare_input(generated_word, latest_guess)
         new_game.store_guess(latest_guess)
 
-        if generated_word == latest_guess:
-            return False
-        
-        return True
-
 
 main()
-
