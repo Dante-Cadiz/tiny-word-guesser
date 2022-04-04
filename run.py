@@ -19,8 +19,8 @@ class Game:
         Finds position-dependent letter matches and feeds back to user
         """
         if word == guess:
-            print(f'Congratulations, {guess} is the correct word')
-            return
+            print(f'Congratulations, {guess} is the correct answer')
+            return 
         correct_guesses = [i for i, j in zip(word, guess) if i == j]
         if correct_guesses:
             print(f'Letters {correct_guesses} in the correct position')
@@ -33,7 +33,7 @@ class Game:
 
     def store_guess(self, guess):
         """
-        Stores user guesses in guesses class attribute, counting it to check number of guesses
+        Stores user guesses in guesses class attribute, counting it to check guess count
         """
         self.guesses.append(guess)
         print(f'{len(self.guesses)} guesses made')
@@ -86,6 +86,11 @@ def main():
         latest_guess = get_user_input()
         new_game.compare_input(generated_word, latest_guess)
         new_game.store_guess(latest_guess)
+
+        if generated_word == latest_guess:
+            return False
+        
+        return True
 
 
 main()
