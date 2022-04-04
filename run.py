@@ -1,39 +1,17 @@
 import random
 # import rich use colours in CLI 
-word_list = ['ace', 'act', 'add', 'age', 'ago', 'air', 'ale', 'all', 'amp', 'and', 'ant', 'any', 'ape', 'app', 'are', 'ark', 'arm', 'ash', 'ask', 'ate', 'awe', 'axe', 'bad', 'bag', 'ban', 'bap', 'bar', 'bat', 'bay', 'bed', 'bee', 'beg', 'bet', 'big', 'bin', 'bit', 'bob', 'bog', 'bop', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cap', 'can', 'car', 'cat', 'cob', 'cop', 'cow', 'cry', 'cub', 'cut', 'dab', 'dad', 'dam', 'day', 'den', 'did', 'dip', 'doe', 'dog', 'dot', 'dry', 'due', 'dug', 'ear', 'eat', 'eel', 'egg', 'elf', 'elk', 'end', 'eye', 'fan', 'far', 'fat', 'fee', 'few', 'fig', 'fin', 'fit', 'fix', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'gap', 'gas', 'gay', 'gel', 'get', 'god', 'got', 'had', 'hag', 'ham', 'has', 'hat', 'hay', 'hen', 'her', 'hex', 'hid', 'him', 'hip', 'his', 'hit', 'hob', 'hoe', 'hop', 'how', 'hub', 'hug', 'hut', 'ice', 'ill', 'ink', 'jab', 'jam', 'jar', 'jaw', 'jet', 'job', 'jog', 'jug', 'jut', 'key', 'kid', 'kin', 'kit', 'lab', 'lag', 'lap', 'law', 'lay', 'leg', 'let', 'lid', 'lie', 'lip', 'lit', 'lob', 'lot', 'low', 'mad', 'man', 'map', 'mat', 'may', 'men', 'met', 'mew', 'mix', 'mob', 'mom', 'mop', 'mow', 'mud', 'mug', 'mum', 'nag', 'nap', 'net', 'new', 'nip', 'nod', 'not', 'now', 'nut', 'oaf', 'oar', 'odd', 'oil', 'old', 'one', 'our', 'out', 'owe', 'owl', 'own', 'pad', 'pal', 'pan', 'par', 'pat', 'paw', 'pay', 'pea', 'peg', 'pen', 'pet', 'pie', 'pig', 'pin', 'pit', 'pop', 'pot', 'pox', 'pry', 'pup', 'put', 'rag', 'ram', 'rap', 'rat', 'raw', 'ray', 'red', 'rob', 'rod', 'rot', 'row', 'rub', 'rug', 'rum', 'run', 'rut', 'sad', 'sag', 'sap', 'sat', 'saw', 'say', 'see', 'set', 'sew', 'sir', 'sin', 'sip', 'sit', 'six', 'sob', 'son', 'sow', 'tag', 'tan', 'tap', 'tax', 'tea', 'ten', 'the', 'tie', 'tin', 'tip', 'toe', 'ton', 'top', 'tow', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'vex', 'wad', 'war', 'was', 'wax', 'way', 'wet', 'who', 'why', 'wig', 'win', 'wit', 'won', 'wow', 'yak', 'yes', 'yet', 'you', 'zap', 'zip', 'zoo']
+word_list = ['ace', 'act', 'add', 'age', 'ago', 'air', 'ale', 'all', 'amp', 'and', 'ant', 'any', 'ape', 'app', 'are', 'ark', 'arm', 'ash', 'ask', 'ate', 'awe', 'axe', 'bad', 'bag', 'ban', 'bap', 'bar', 'bat', 'bay', 'bed', 'bee', 'beg', 'bet', 'big', 'bin', 'bit', 'bob', 'bog', 'bop', 'bow', 'box', 'boy', 'bra', 'bud', 'bug', 'bum', 'bun', 'bus', 'but', 'buy', 'bye', 'cab', 'cap', 'can', 'car', 'cat', 'cob', 'cop', 'cow', 'cry', 'cub', 'cut', 'dab', 'dad', 'dam', 'day', 'den', 'dew', 'did', 'die', 'dig', 'dim', 'dip', 'doe', 'dog', 'dot', 'dry', 'due', 'dug', 'dye', 'ear', 'eat', 'eel', 'egg', 'elf', 'elk', 'end', 'eye', 'fan', 'far', 'fat', 'fee', 'few', 'fig', 'fin', 'fit', 'fix', 'fly', 'foe', 'fog', 'for', 'fox', 'fry', 'fun', 'gap', 'gas', 'gay', 'gel', 'get', 'god', 'got', 'had', 'hag', 'ham', 'has', 'hat', 'hay', 'hen', 'her', 'hex', 'hid', 'him', 'hip', 'his', 'hit', 'hob', 'hoe', 'hop', 'how', 'hub', 'hug', 'hut', 'ice', 'ill', 'ink', 'jab', 'jam', 'jar', 'jaw', 'jet', 'job', 'jog', 'jug', 'jut', 'key', 'kid', 'kin', 'kit', 'lab', 'lag', 'lap', 'law', 'lay', 'leg', 'let', 'lid', 'lie', 'lip', 'lit', 'lob', 'lot', 'low', 'lye', 'mad', 'man', 'map', 'mat', 'may', 'men', 'met', 'mew', 'mix', 'mob', 'mom', 'mop', 'mow', 'mud', 'mug', 'mum', 'nag', 'nap', 'net', 'new', 'nip', 'nod', 'not', 'now', 'nut', 'oaf', 'oar', 'odd', 'oil', 'old', 'one', 'our', 'out', 'owe', 'owl', 'own', 'pad', 'pal', 'pan', 'par', 'pat', 'paw', 'pay', 'pea', 'peg', 'pen', 'pet', 'pie', 'pig', 'pin', 'pit', 'pop', 'pot', 'pox', 'pry', 'pup', 'put', 'rag', 'ram', 'rap', 'rat', 'raw', 'ray', 'red', 'rob', 'rod', 'rot', 'row', 'rub', 'rug', 'rum', 'run', 'rut', 'sad', 'sag', 'sap', 'sat', 'saw', 'say', 'see', 'set', 'sew', 'sir', 'sin', 'sip', 'sit', 'six', 'sob', 'son', 'sow', 'tag', 'tan', 'tap', 'tax', 'tea', 'ten', 'the', 'tie', 'tin', 'tip', 'toe', 'ton', 'top', 'tow', 'toy', 'tub', 'tug', 'two', 'use', 'van', 'vat', 'vet', 'vex', 'wad', 'war', 'was', 'wax', 'way', 'wet', 'who', 'why', 'wig', 'win', 'wit', 'won', 'wow', 'yak', 'yes', 'yet', 'you', 'zap', 'zip', 'zoo']
 
 
 class Game:
     """
     Game class
     """
-    def __init__(self, size, word, guess, guesscount):
+    def __init__(self, size, word, guess):
         self.size = size
         self.word = word
         self.guess = guess
-        self.guesscount = guesscount
-
-    def select_word(self):
-        """
-        Launches game, selecting random word from global variable list
-        """
-        print('launching game!')
-        chosen_word = random.choice(word_list)
-        print(chosen_word)
-        self.word = chosen_word
-        return chosen_word
-
-
-    def store_guess(self, guess):
-        """
-        Stores user guesses in array, counting it to check number of guesses
-        """
-        guess_list = []
-        guess_list.append(guess)
-        print(guess_list)
-        self.guesscount += 1
-        print(self.guesscount)
-
+        self.guesses = []
 
     def compare_input(self, word, guess):
         """
@@ -53,6 +31,22 @@ class Game:
         if incorrect_guesses:
             print(f'{incorrect_guesses} not in the word')
 
+    def store_guess(self, guess):
+        """
+        Stores user guesses in guesses class attribute, counting it to check number of guesses
+        """
+        self.guesses.append(guess)
+        print(f'{len(self.guesses)} guesses made')
+
+
+def select_word():
+    """
+    Selects random word from global variable list
+    """
+    chosen_word = random.choice(word_list)
+    print(chosen_word)
+    return chosen_word
+
 
 def get_user_input():
     """
@@ -66,7 +60,7 @@ def get_user_input():
         if check_valid_input(user_input):
             print('Guess made')
             return user_input
-  
+
 
 def check_valid_input(user_input):
     """
@@ -86,11 +80,13 @@ def main():
     """
     The main function that runs the word guessing game.
     """
-    new_game = Game(3, '', '', 0)
-    new_word = new_game.select_word()
-    user_guess = get_user_input()
-    new_game.compare_input(new_word, user_guess)
-    new_game.store_guess(user_guess)
+    generated_word = select_word()
+    new_game = Game(3, generated_word, '')
+    while True:
+        latest_guess = get_user_input()
+        new_game.compare_input(generated_word, latest_guess)
+        new_game.store_guess(latest_guess)
+
 
 main()
 
