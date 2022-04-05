@@ -20,7 +20,7 @@ class Game:
         """
         if word == guess:
             print(f'Congratulations, {guess} is the correct answer')
-            return 
+            return
         correct_guesses = [i for i, j in zip(word, guess) if i == j]
         if correct_guesses:
             print(f'Letters {correct_guesses} in the correct position')
@@ -44,7 +44,6 @@ def select_word():
     Selects random word from global variable list
     """
     chosen_word = random.choice(word_list)
-    print(chosen_word)
     return chosen_word
 
 
@@ -86,6 +85,9 @@ def main():
         latest_guess = get_user_input()
         new_game.compare_input(generated_word, latest_guess)
         new_game.store_guess(latest_guess)
+
+        if generated_word == latest_guess:
+            return False
 
 
 main()
