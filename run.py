@@ -12,6 +12,7 @@ class Game:
         self.word = word
         self.guess = guess
         self.guesses = []
+        #table as attribute of class
 
     def compare_input(self, word, guess):
         """
@@ -27,9 +28,11 @@ class Game:
         incorrect_position_guesses = (set(word) & set(guess)) - set(correct_guesses)
         if incorrect_position_guesses:
             print(f'Letters {incorrect_position_guesses} somewhere in word')
+            #push to list, display list after guesses
         incorrect_guesses = set(guess) - set(word)
         if incorrect_guesses:
             print(f'{incorrect_guesses} not in the word')
+            #push to list, display list after guesses
 
     def store_guess(self, guess):
         """
@@ -37,6 +40,7 @@ class Game:
         """
         self.guesses.append(guess)
         print(f'{len(self.guesses)} guesses made')
+        #for guess in guesses print guess
 
 
 def select_word():
@@ -44,6 +48,7 @@ def select_word():
     Selects random word from global variable list
     """
     chosen_word = random.choice(word_list)
+    print(chosen_word)
     return chosen_word
 
 
@@ -68,8 +73,8 @@ def check_valid_input(user_input):
     try:
         if user_input not in word_list:
             raise ValueError(f'Your guess {user_input} was not in word list')
-    except ValueError as e:
-        print(f"{e}, please try again.\n")
+    except ValueError as wrong_entry:
+        print(f"{wrong_entry}, please try again.\n")
         return False
 
     return True
