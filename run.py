@@ -51,7 +51,8 @@ def select_word():
     """
     Selects random word from global variable list
     """
-    word_list = open('answerset.txt').read().split("\n")
+    with open('answerset.txt', 'rt') as answer_dataset:
+        word_list = [line.rstrip() for line in answer_dataset]
     chosen_word = random.choice(word_list)
     console.print(chosen_word)
     return chosen_word
@@ -69,7 +70,7 @@ def get_user_input():
         if check_valid_input(user_input):
             console.print('Guess made')
             break
-    
+
     return user_input
 
 
@@ -77,8 +78,10 @@ def check_valid_input(user_input):
     """
     Checks whether user input is a valid word in the word_list list
     """
-    possible_guesses = open('possibleguesses.txt').read().split("\n")
     try:
+        with open('possibleguesses.txt', 'rt') as guess_dataset:
+            possible_guesses = [line.rstrip() for line in guess_dataset]
+            return possible_guesses
         if user_input not in possible_guesses:
             raise ValueError(f'Your guess {user_input} was invalid')
     except ValueError as wrong_entry:
