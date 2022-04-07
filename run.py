@@ -8,11 +8,16 @@ class Game:
     """
     Game class
     """
-    def __init__(self, size, word, guess):
-        self.size = size
+    def __init__(self, word, guess, table):
         self.word = word
         self.guess = guess
         self.guesses = []
+        self.table = table
+
+    def build_table(self):
+        table = Table()
+        table.add_column()
+        return table
 
     def compare_input(self, word, guess):
         """
@@ -34,18 +39,14 @@ class Game:
             console.print(f'{incorrect_guesses} not in the word')
             #push to list, display list after guesses
 
-    def store_guess(self, size, guess):
+    def store_guess(self, guess, table):
         """
         Stores user guesses in guesses class attribute, counting it to check guess count
         """
-        table = Table()
-        for i in range(size):
-            table.add_column('test')
+        table.add_row(guess)
         console.print(table)
         self.guesses.append(guess)
         console.print(f'{len(self.guesses)} guesses made')
-        #for guess in guesses print guess
-
 
 def select_word():
     """
@@ -96,11 +97,12 @@ def main():
     The main function that runs the word guessing game.
     """
     generated_word = select_word()
-    new_game = Game(5, generated_word, '')
+    new_game = Game(generated_word, '', '')
+    new_table = new_game.build_table()
     while True:
         latest_guess = get_user_input()
         new_game.compare_input(generated_word, latest_guess)
-        new_game.store_guess(5, latest_guess)
+        new_game.store_guess(latest_guess, new_table)
 
         if generated_word == latest_guess:
             return False
