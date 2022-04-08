@@ -12,11 +12,16 @@ class Game:
         self.word = word
         self.guess = guess
         self.guesses = []
+        self.size = 5
         self.table = table
 
     def build_table(self):
-        table = Table()
-        table.add_column()
+        """
+        Builds the table displayed to the user in terminal
+        """
+        table = Table(show_lines=True, show_header=False)
+        for i in range(self.size):
+            table.add_column()
         return table
 
     def compare_input(self, word, guess):
@@ -29,21 +34,22 @@ class Game:
             return
         correct_guesses = [i for i, j in zip(word, guess) if i == j]
         if correct_guesses:
-            console.print(f'Letters {correct_guesses} in the correct position')
-        incorrect_position_guesses = (set(word) & set(guess)) - set(correct_guesses)
-        if incorrect_position_guesses:
-            console.print(f'Letters {incorrect_position_guesses} somewhere in word')
+            console.print(f'Letters [green]{correct_guesses}[/green] in the correct position')
+        incorrect_position = (set(word) & set(guess)) - set(correct_guesses)
+        if incorrect_position:
+            console.print(f'Letters [red]{incorrect_position}[/red] somewhere in word')
             #push to list, display list after guesses
         incorrect_guesses = set(guess) - set(word)
         if incorrect_guesses:
-            console.print(f'{incorrect_guesses} not in the word')
+            console.print(f'[white]{incorrect_guesses}[/white] not in the word')
             #push to list, display list after guesses
 
     def store_guess(self, guess, table):
         """
         Stores user guesses in guesses class attribute, counting it to check guess count
         """
-        table.add_row(guess)
+        guess_as_list = list(guess)
+        table.add_row('')
         console.print(table)
         self.guesses.append(guess)
         console.print(f'{len(self.guesses)} guesses made')
@@ -55,7 +61,6 @@ def select_word():
     with open('answerset.txt', 'rt') as answer_dataset:
         word_list = [line.rstrip() for line in answer_dataset]
     chosen_word = random.choice(word_list)
-    console.print(chosen_word)
     return chosen_word
 
 
