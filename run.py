@@ -112,5 +112,9 @@ def main():
         if generated_word == latest_guess:
             return False
 
+        if len(new_game.guesses) == 6:
+            console.print(f'All attempts used. {generated_word} was the word.')
+            return False
+
 
 main()
