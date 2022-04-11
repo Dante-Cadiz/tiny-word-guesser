@@ -85,9 +85,8 @@ def check_valid_input(user_input):
     Checks whether user input is a valid word in the word_list list
     """
     try:
-        with open('possibleguesses.txt', 'rt') as guess_dataset:
+        with open('possibleguesses.txt') as guess_dataset:
             possible_guesses = [line.rstrip() for line in guess_dataset]
-            return possible_guesses
         if user_input not in possible_guesses:
             raise ValueError(f'Your guess {user_input} was invalid')
     except ValueError as wrong_entry:
