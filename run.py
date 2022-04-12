@@ -12,16 +12,15 @@ class Game:
         self.word = word
         self.guess = guess
         self.guesses = []
-        self.size = 5
         self.table = table
+        self.incorrect_list = []
 
     def build_table(self):
         """
         Builds the table displayed to the user in terminal
         """
         table = Table(show_lines=True, show_header=False)
-        for i in range(self.size):
-            table.add_column()
+        table.add_column()
         return table
 
     def compare_input(self, word, guess):
@@ -41,15 +40,16 @@ class Game:
             #push to list, display list after guesses
         incorrect_guesses = set(guess) - set(word)
         if incorrect_guesses:
-            console.print(f'[white]{incorrect_guesses}[/white] not in the word')
+            for i in incorrect_guesses:
+                self.incorrect_list.append(i)
+            console.print(f'{self.incorrect_list} not in the word')
             #push to list, display list after guesses
 
     def store_guess(self, guess, table):
         """
         Stores user guesses in guesses class attribute, counting it to check guess count
         """
-        guess_as_list = list(guess)
-        table.add_row('')
+        table.add_row(guess)
         console.print(table)
         self.guesses.append(guess)
         console.print(f'{len(self.guesses)} guesses made')
