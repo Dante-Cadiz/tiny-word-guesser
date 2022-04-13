@@ -11,9 +11,9 @@ class Game:
     def __init__(self, word, guess, table):
         self.word = word
         self.guess = guess
-        self.guesses = []
+        self.guesslist = []
         self.table = table
-        self.incorrect_list = []
+        self.incorrect_set = set()
 
     def build_table(self):
         """
@@ -37,22 +37,21 @@ class Game:
         incorrect_position = (set(word) & set(guess)) - set(correct_guesses)
         if incorrect_position:
             console.print(f'Letters [red]{incorrect_position}[/red] somewhere in word')
-            #push to list, display list after guesses
         incorrect_guesses = set(guess) - set(word)
         if incorrect_guesses:
             for i in incorrect_guesses:
-                self.incorrect_list.append(i)
-            console.print(f'{self.incorrect_list} not in the word')
-            #push to list, display list after guesses
+                self.incorrect_set.add(i)
+            console.print(f'{self.incorrect_set} not in the word')
 
-    def store_guess(self, guess, table):
+    def store_guess(self, guess, guesslist, table):
         """
-        Stores user guesses in guesses class attribute, counting it to check guess count
+        Stores user guesses in guesslist class attribute, returns guesslist
         """
         table.add_row(guess)
         console.print(table)
-        self.guesses.append(guess)
-        console.print(f'{len(self.guesses)} guesses made')
+        guesslist.append(guess)
+        console.print(f'{len(self.guesslist)} guesses made')
+
 
 def select_word():
     """
@@ -89,6 +88,8 @@ def check_valid_input(user_input):
             possible_guesses = [line.rstrip() for line in guess_dataset]
         if user_input not in possible_guesses:
             raise ValueError(f'Your guess {user_input} was invalid')
+        #if user_input in :
+            #raise ValueError(f'You already guessed{user_input}')
     except ValueError as wrong_entry:
         console.print(f"{wrong_entry}, please try again.\n")
         return False
@@ -103,15 +104,16 @@ def main():
     generated_word = select_word()
     new_game = Game(generated_word, '', '')
     new_table = new_game.build_table()
+    new_guesslist = new_game.guesslist
     while True:
         latest_guess = get_user_input()
         new_game.compare_input(generated_word, latest_guess)
-        new_game.store_guess(latest_guess, new_table)
+        new_game.store_guess(latest_guess, new_guesslist, new_table)
 
         if generated_word == latest_guess:
             return False
 
-        if len(new_game.guesses) == 6:
+        if len(new_guesslist) == 6:
             console.print(f'All attempts used. {generated_word} was the word.')
             return False
 
