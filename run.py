@@ -22,6 +22,47 @@ class Game:
         table = Table(show_lines=True, show_header=False)
         table.add_column()
         return table
+    
+    def select_word(self):
+        """
+        Selects random word from global variable list
+        """
+        with open('answerset.txt', 'rt') as answer_dataset:
+            word_list = [line.rstrip() for line in answer_dataset]
+        chosen_word = random.choice(word_list)
+        return chosen_word
+
+    def get_user_input(self, guesslist):
+        """
+        Prompts user to submit guess in terminal
+        Triggered on initial game launch and after incorrect or invalid guesses
+        """
+        while True:
+            console.print('Guess a 5 letter word')
+            user_input = console.input('Make your guess here: ')
+
+            if self.check_valid_input(user_input, guesslist):
+                console.print('Guess made')
+                break
+
+        return user_input
+
+    def check_valid_input(self, guess, guesslist):
+        """
+        Checks whether user input is a valid word in the word_list list
+        """
+        try:
+            with open('possibleguesses.txt') as guess_dataset:
+                possible_guesses = [line.rstrip() for line in guess_dataset]
+            if guess not in possible_guesses:
+                raise ValueError(f'Your guess {guess} was invalid')
+            if guess in guesslist:
+                raise ValueError(f'You already guessed {guess}')
+        except ValueError as wrong_entry:
+            console.print(f"{wrong_entry}, please try again.\n")
+            return False
+
+        return True
 
     def compare_input(self, word, guess):
         """
@@ -50,63 +91,20 @@ class Game:
         table.add_row(guess)
         console.print(table)
         guesslist.append(guess)
-        console.print(f'{len(self.guesslist)} guesses made')
-
-
-def select_word():
-    """
-    Selects random word from global variable list
-    """
-    with open('answerset.txt', 'rt') as answer_dataset:
-        word_list = [line.rstrip() for line in answer_dataset]
-    chosen_word = random.choice(word_list)
-    return chosen_word
-
-
-def get_user_input():
-    """
-    Prompts user to submit guess in terminal
-    Triggered on initial game launch and after incorrect or invalid guesses
-    """
-    while True:
-        console.print('Guess a 5 letter word')
-        user_input = console.input('Make your guess here: ')
-
-        if check_valid_input(user_input):
-            console.print('Guess made')
-            break
-
-    return user_input
-
-
-def check_valid_input(user_input):
-    """
-    Checks whether user input is a valid word in the word_list list
-    """
-    try:
-        with open('possibleguesses.txt') as guess_dataset:
-            possible_guesses = [line.rstrip() for line in guess_dataset]
-        if user_input not in possible_guesses:
-            raise ValueError(f'Your guess {user_input} was invalid')
-        #if user_input in :
-            #raise ValueError(f'You already guessed{user_input}')
-    except ValueError as wrong_entry:
-        console.print(f"{wrong_entry}, please try again.\n")
-        return False
-
-    return True
+        console.print(f'{len(guesslist)} guesses made')
+        return guesslist
 
 
 def main():
     """
     The main function that runs the word guessing game.
     """
-    generated_word = select_word()
-    new_game = Game(generated_word, '', '')
+    new_game = Game('', '', '')
+    generated_word = new_game.select_word()
     new_table = new_game.build_table()
     new_guesslist = new_game.guesslist
     while True:
-        latest_guess = get_user_input()
+        latest_guess = new_game.get_user_input(new_guesslist)
         new_game.compare_input(generated_word, latest_guess)
         new_game.store_guess(latest_guess, new_guesslist, new_table)
 
