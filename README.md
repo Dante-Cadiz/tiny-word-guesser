@@ -1,31 +1,35 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Tiny Word Guesser
 
-Welcome Dante-Cadiz,
+Tiny Word Guesser is a command line interface version of the popular word guessing game Wordle, following its exact rule set. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+Features:
 
-## Reminders
+Random word selector
+User input
+Guess validator - exception handling
+Constant user feedback
+Table - with Rich library
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
+Testing - PEP8online check
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
------
-Happy coding!
+
+Deployment: Heroku
+
+
+Credits:
+
+Data for answer set and possible valid guesses taken directly from Wordle's own data set - Daniel Wardle github
+Method for finding exact positional matches taken from stack overflow (find link)
+
+
+Potential future features:
+
+Words of different lengths - can choose before playing game
