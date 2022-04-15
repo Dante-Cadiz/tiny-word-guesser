@@ -35,7 +35,7 @@ class Game:
     def get_user_input(self, guesslist):
         """
         Prompts user to submit guess in terminal.
-        Triggered on initial game launch and after incorrect or invalid guesses.
+        Triggered on initial game launch and after incorrect/invalid guesses.
         """
         while True:
             console.print('Guess a 5 letter word.')
@@ -72,21 +72,25 @@ class Game:
         if word == guess:
             console.print(f'Congratulations, {guess} is the correct answer')
             return
-        correct_guesses = [i for i, j in zip(word, guess) if i == j]
-        if correct_guesses:
-            console.print(f'Letters [green]{correct_guesses}[/green] in the correct position')
-        incorrect_position = (set(word) & set(guess)) - set(correct_guesses)
+        correct = [i for i, j in zip(word, guess) if i == j]
+        if correct:
+            console.print(
+                f'Letters [green]{correct}[/green] in the correct position')
+        incorrect_position = (set(word) & set(guess)) - set(correct)
         if incorrect_position:
-            console.print(f'Letters [red]{incorrect_position}[/red] somewhere in word')
+            console.print(
+                f'Letters [red]{incorrect_position}[/red] somewhere in word')
         incorrect_guesses = set(guess) - set(word)
         if incorrect_guesses:
             for i in incorrect_guesses:
                 self.incorrect_set.add(i)
-            console.print(f'[yellow]{self.incorrect_set}[/yellow] not in the word')
+            console.print(
+                f'[yellow]{self.incorrect_set}[/yellow] not in the word')
 
     def store_guess(self, guess, guesslist, table):
         """
-        Stores user guesses in guesslist class attribute, returns guesslist.
+        Stores user guesses in guesslist class attribute.
+        Prints table of guesses to terminal.
         """
         table.add_row(guess)
         console.print(table)
@@ -98,13 +102,16 @@ def print_instructions():
     """
     Prints instructions for playing the game to the user.
     """
-    console.print('Welcome to Tiny Word Guesser!', style='bold purple')
-    console.print('Use your deduction to guess a 5 letter word.')
-    console.print('After each guess, you will see how the letters')
-    console.print('in your guess compare to the answer.')
-    console.print('Guesses need to be in lower case.')
-    console.print('You have 6 attempts to get the correct answer.')
-    console.print('4 is good, 3 is impressive!')
+    INSTRUCTIONS = """
+    [purple]Welcome to Tiny Word Guesser![/purple]
+    Use your deduction to guess a 5 letter word.
+    After each guess, you will see how the letters
+    in your guess compare to the answer.
+    Guesses need to be in lower case.
+    You have 6 attempts to get the correct answer.
+    4 is good, 3 is impressive!
+    """
+    console.print(INSTRUCTIONS)
 
 
 def main():
@@ -129,5 +136,5 @@ def main():
             return False
 
 
-main()
-
+if __name__ == "__main__":
+    main()
