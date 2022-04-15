@@ -102,6 +102,7 @@ def print_instructions():
     console.print('Use your deduction to guess a 5 letter word.')
     console.print('After each guess, you will see how the letters')
     console.print('in your guess compare to the answer.')
+    console.print('Guesses need to be in lower case.')
     console.print('You have 6 attempts to get the correct answer.')
     console.print('4 is good, 3 is impressive!')
 
