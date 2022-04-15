@@ -25,7 +25,7 @@ After comparing the submitted user guess with the answer, the user receives text
 ![gameplay with guesses being appended to table](https://i.imgur.com/n190UsQ.png)
 ### Potential future features:
 - Implementing colour coded letters in the table in the style of Wordle itself.
-- Adding further data sets fo words of different lengths and allowing the user to select the length of word they would like to guess upon game launch.
+- Adding further data sets for words of different lengths and allowing the user to select the length of word they would like to guess upon game launch.
 
 ## Testing:
 - Throughout the development process, I have manually tested the application, entering invalid and repeated inputs, along with playing the game in ordinary fashion.
